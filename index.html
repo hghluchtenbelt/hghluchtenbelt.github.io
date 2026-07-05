@@ -115,6 +115,8 @@
     .btn.primary { background: var(--accent); border-color: var(--accent); color: #06281b; }
     .btn.primary:hover { background: #4be0a8; }
     .btn svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
+    .btn.soon { border-style: dashed; color: var(--muted); cursor: default; }
+    .btn.soon:hover { transform: none; border-color: var(--line); }
 
     /* sections */
     section { padding: 70px 0; }
@@ -352,6 +354,16 @@
             <div class="featured-actions">
               <a class="btn primary" href="https://vogel-radar.nl" target="_blank" rel="noopener">Open vogel-radar.nl</a>
               <a class="btn" href="https://github.com/hghluchtenbelt/vogelradar2" target="_blank" rel="noopener">Source on GitHub</a>
+              <!-- Once the app is live, replace the span below with:
+              <a class="btn" href="https://play.google.com/store/apps/details?id=nl.vogelradar.app" target="_blank" rel="noopener">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.5v13c0 .4.45.65.8.42l10.9-6.5a.5.5 0 0 0 0-.84L2.8 1.08A.5.5 0 0 0 2 1.5z"/></svg>
+                Google Play
+              </a>
+              -->
+              <span class="btn soon" aria-disabled="true" title="Almost available on Google Play">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.5v13c0 .4.45.65.8.42l10.9-6.5a.5.5 0 0 0 0-.84L2.8 1.08A.5.5 0 0 0 2 1.5z"/></svg>
+                Google Play <span class="badge-small">soon</span>
+              </span>
             </div>
           </div>
           <div class="radar-pane" aria-hidden="true">
