@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hermen Luchtenbelt — Curriculum Vitae</title>
+  <meta name="description" content="Curriculum vitae of Hermen Luchtenbelt — researcher in climate risk, adaptation and land use.">
+  <link rel="shortcut icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1b2a20;          /* dark green-charcoal */
+      --muted: #55665b;
+      --faint: #7d8c81;
+      --accent: #2f8f57;       /* deep leaf green */
+      --accent-soft: #eaf3ec;
+      --line: #d8e3da;
+      --paper: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: #eef1ec;               /* screen backdrop */
+      line-height: 1.42;
+      -webkit-font-smoothing: antialiased;
+      font-size: 13.5px;
+    }
+    h1, h2, h3 { font-family: "Space Grotesk", "Inter", sans-serif; }
+
+    /* the printable sheet */
+    .sheet {
+      max-width: 820px;
+      margin: 26px auto;
+      background: var(--paper);
+      padding: 40px 46px 44px;
+      box-shadow: 0 8px 40px rgba(20, 45, 30, 0.14);
+      border-top: 5px solid var(--accent);
+    }
+
+    /* ---- header ---- */
+    .head { display: flex; gap: 26px; align-items: center; }
+    .photo {
+      width: 116px; height: 116px; flex: none; border-radius: 12px;
+      object-fit: cover; filter: grayscale(100%) contrast(1.02);
+      box-shadow: 0 0 0 1px var(--line), 0 0 0 5px var(--accent-soft);
+    }
+    .head-main { flex: 1; }
+    .head-main h1 {
+      font-size: 2.05rem; font-weight: 700; letter-spacing: -0.01em;
+      line-height: 1.1; color: var(--ink);
+    }
+    .role {
+      font-family: "Space Grotesk", sans-serif; font-weight: 600;
+      color: var(--accent); font-size: 1rem; margin-top: 3px; letter-spacing: 0.01em;
+    }
+    .summary { color: var(--muted); font-size: 0.9rem; margin-top: 8px; max-width: 52ch; }
+
+    .contact {
+      margin-top: 4px; display: flex; flex-direction: column; gap: 4px;
+      font-size: 0.82rem; color: var(--muted); text-align: right; flex: none;
+    }
+    .contact a { color: var(--muted); text-decoration: none; }
+    .contact a:hover { color: var(--accent); }
+    .contact .c-row { display: flex; align-items: center; justify-content: flex-end; gap: 7px; }
+    .contact svg { width: 13px; height: 13px; fill: var(--accent); flex: none; }
+
+    /* ---- sections ---- */
+    section { margin-top: 22px; }
+    .sec-title {
+      font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.16em; color: var(--accent);
+      padding-bottom: 5px; border-bottom: 1.5px solid var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .entry { margin-bottom: 13px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+    }
+    .entry-title { font-weight: 600; font-size: 0.96rem; color: var(--ink); }
+    .entry-org { color: var(--muted); font-weight: 500; }
+    .entry-date {
+      flex: none; font-family: "Space Grotesk", sans-serif; font-weight: 500;
+      font-size: 0.8rem; color: var(--faint); white-space: nowrap;
+    }
+    .entry-sub { font-style: italic; color: var(--faint); font-size: 0.86rem; margin-top: 1px; }
+    ul.bullets { list-style: none; margin-top: 5px; display: grid; gap: 3px; }
+    ul.bullets li {
+      position: relative; padding-left: 15px; color: var(--muted); font-size: 0.875rem;
+    }
+    ul.bullets li::before {
+      content: ""; position: absolute; left: 2px; top: 0.55em;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+    }
+
+    /* two-column band for skills / languages */
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+    .kv { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 0.875rem; }
+    .kv dt { color: var(--faint); font-weight: 600; white-space: nowrap; }
+    .kv dd { color: var(--muted); }
+
+    .pub { font-size: 0.86rem; color: var(--muted); margin-bottom: 8px; padding-left: 15px; position: relative; }
+    .pub:last-child { margin-bottom: 0; }
+    .pub::before {
+      content: ""; position: absolute; left: 2px; top: 0.5em;
+      width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+    }
+    .pub .authors strong { color: var(--ink); }
+    .pub a { color: var(--accent); text-decoration: none; }
+    .pub .tag {
+      font-family: "Space Grotesk", sans-serif; font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent);
+      background: var(--accent-soft); padding: 1px 7px; border-radius: 999px; margin-left: 4px;
+    }
+
+    .back-link {
+      display: block; max-width: 820px; margin: 0 auto 4px; padding: 0 6px;
+      font-size: 0.8rem;
+    }
+    .back-link a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    /* ---- print / PDF ---- */
+    @media print {
+      @page { size: A4; margin: 7mm 11mm; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff; font-size: 9.3px; line-height: 1.24; }
+      .sheet { max-width: none; margin: 0; padding: 0; box-shadow: none; border-top: none; }
+      .back-link { display: none; }
+      .photo { width: 88px; height: 88px; box-shadow: 0 0 0 1px var(--line); }
+      .head { gap: 18px; }
+      .head-main h1 { font-size: 1.55rem; }
+      .role { font-size: 0.9rem; margin-top: 2px; }
+      .summary { font-size: 0.84rem; margin-top: 5px; }
+      .contact { font-size: 0.76rem; gap: 3px; }
+      section { margin-top: 6px; }
+      .sec-title { margin-bottom: 5px; padding-bottom: 4px; }
+      .entry { margin-bottom: 4px; }
+      .entry-sub { margin-top: 0; }
+      ul.bullets { margin-top: 2px; gap: 1px; }
+      .pub { margin-bottom: 5px; }
+      a { color: inherit; }
+    }
+    @media (max-width: 680px) {
+      .sheet { padding: 30px 22px; margin: 12px; }
+      .head { flex-direction: column; text-align: center; align-items: center; }
+      .contact { text-align: center; }
+      .contact .c-row { justify-content: center; }
+      .entry-head { flex-direction: column; }
+      .cols { grid-template-columns: 1fr; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-link"><a href="index.html">&larr; Back to site</a></div>
+  <div class="sheet">
+
+    <!-- HEADER -->
+    <header class="head">
+      <img class="photo" src="images/hermen_photo.jpg" alt="Hermen Luchtenbelt">
+      <div class="head-main">
+        <h1>Hermen Luchtenbelt</h1>
+        <div class="role">Researcher — Climate Risk &amp; Adaptation</div>
+        <p class="summary">
+          Climate &amp; land-use researcher working on food systems, planetary
+          boundaries and compounding climate risks.
+        </p>
+      </div>
+      <div class="contact">
+        <span class="c-row"><svg viewBox="0 0 16 16"><path d="M8 0a5 5 0 0 0-5 5c0 3.6 5 11 5 11s5-7.4 5-11a5 5 0 0 0-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg> Utrecht, The Netherlands</span>
+        <span class="c-row"><svg viewBox="0 0 16 16"><path d="M4.5 1.5 2 4c0 6.6 5.4 12 12 12l2.5-2.5-3.3-3.3-2 1.3a10 10 0 0 1-4-4l1.3-2L4.5 1.5z"/></svg> +31 6 83 65 86 34</span>
+        <a class="c-row" href="mailto:hermenluchtenbelt@hotmail.com"><svg viewBox="0 0 16 16"><path d="M1 3h14v10H1V3zm1.2 1L8 8.3 13.8 4H2.2z"/></svg> hermenluchtenbelt@hotmail.com</a>
+        <a class="c-row" href="https://www.linkedin.com/in/hermenluchtenbelt/"><svg viewBox="0 0 16 16"><path d="M13.6 0H2.4C1.1 0 0 1.1 0 2.4v11.2C0 14.9 1.1 16 2.4 16h11.2c1.3 0 2.4-1.1 2.4-2.4V2.4C16 1.1 14.9 0 13.6 0zM4.8 13.6H2.4V6h2.4v7.6zM3.6 5c-.8 0-1.4-.6-1.4-1.4S2.8 2.2 3.6 2.2 5 2.8 5 3.6 4.4 5 3.6 5zm10 8.6h-2.4V9.9c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.7H6.2V6h2.3v1h.1c.3-.6 1.1-1.2 2.3-1.2 2.4 0 2.9 1.6 2.9 3.7v4.1z"/></svg> linkedin.com/in/hermenluchtenbelt</a>
+        <a class="c-row" href="https://scholar.google.com/citations?user=918BOOEAAAAJ"><svg viewBox="0 0 16 16"><path d="M8 0 0 5l8 5 6.5-4.06V11H16V5L8 0zM3 8.2V11l5 2.8L13 11V8.2l-5 3.1-5-3.1z"/></svg> Google Scholar</a>
+      </div>
+    </header>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="sec-title">Working experience</div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">Researcher, Climate Risk &amp; Adaptation</span> &middot; <span class="entry-org">Wageningen University &amp; Research</span></div>
+          <div class="entry-date">2026 &ndash; present</div>
+        </div>
+        <div class="entry-sub">Wageningen, the Netherlands</div>
+        <ul class="bullets">
+          <li>Research on compounding and cascading climate risks and their impacts on agriculture and society.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">Researcher</span> &middot; <span class="entry-org">PBL Netherlands Environmental Assessment Agency</span></div>
+          <div class="entry-date">2022 &ndash; 2026</div>
+        </div>
+        <div class="entry-sub">The Hague, the Netherlands</div>
+        <ul class="bullets">
+          <li>Scenario studies and quantitative analysis of AFOLU, with a focus on food systems, planetary boundaries and emissions.</li>
+          <li>Contributed to the development and application of the IMAGE integrated assessment model.</li>
+          <li>Authored a study on crop-yield impacts on food security and mitigation, a paper (under review) on regional planetary boundaries in food-system transitions, and several co-authored studies.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">Research consultant</span> &middot; <span class="entry-org">Global Green Growth Institute</span></div>
+          <div class="entry-date">2021 &ndash; 2023</div>
+        </div>
+        <div class="entry-sub">Seoul, South Korea (home-based)</div>
+        <ul class="bullets">
+          <li>Developed a system-dynamics simulation tool to explore environmental and economic impacts of policy scenarios and NDCs.</li>
+          <li>Responsible for indicators related to AFOLU and greenhouse-gas emissions.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">Student consultant, sustainable grazing</span> &middot; <span class="entry-org">Wageningen University &amp; Research</span></div>
+          <div class="entry-date">2018</div>
+        </div>
+        <div class="entry-sub">Wageningen, the Netherlands</div>
+        <ul class="bullets">
+          <li>Developed a business model for a GIS-based grazing system, including stakeholder interviews and a cost-benefit analysis.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">Intern</span> &middot; <span class="entry-org">Osotua Foundation &amp; NCDO</span></div>
+          <div class="entry-date">2017</div>
+        </div>
+        <div class="entry-sub">Nkoilale, Kenya</div>
+        <ul class="bullets">
+          <li>Reported on interactions between cattle, culture and wildlife for a sustainability showcase of the Masai Mara region.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+      <div class="sec-title">Education</div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">MSc Climate Studies</span> &middot; <span class="entry-org">Wageningen University</span></div>
+          <div class="entry-date">2020</div>
+        </div>
+        <div class="entry-sub">Specialisation: Biogeochemical Cycles &amp; Climate Change Mitigation</div>
+        <ul class="bullets">
+          <li>Thesis: assessing climate risks for assets and investments of the brewing industry using the WOFOST crop-simulation model [8.5/10].</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">MSc Environmental Economics</span> &middot; <span class="entry-org">Wageningen University</span></div>
+          <div class="entry-date">2020</div>
+        </div>
+        <div class="entry-sub">Specialisation: Environmental Economics &amp; Natural Resource Management</div>
+        <ul class="bullets">
+          <li>Thesis: econometric estimation of elasticities of substitution between ecosystem services and other inputs in agricultural production [9.0/10].</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">BSc Economics &amp; Governance</span> &middot; <span class="entry-org">Wageningen University</span></div>
+          <div class="entry-date">2017</div>
+        </div>
+        <div class="entry-sub">Major: Agricultural Economics &nbsp;&middot;&nbsp; Minor: Geo-information Science for Environment &amp; Society</div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><span class="entry-title">Erasmus+ exchange</span> &middot; <span class="entry-org">Czech University of Life Sciences (ČZU), Prague</span></div>
+          <div class="entry-date">2016</div>
+        </div>
+        <div class="entry-sub">Minor: Environmental Economics</div>
+      </div>
+    </section>
+
+    <!-- SKILLS + PUBLICATIONS -->
+    <section>
+      <div class="sec-title">Skills &amp; languages</div>
+      <div class="cols">
+        <dl class="kv">
+          <dt>Programming</dt><dd>Python, Fortran, R</dd>
+          <dt>Modelling</dt><dd>Stata, MATLAB, GAMS</dd>
+          <dt>GIS</dt><dd>ArcGIS, QGIS (basic)</dd>
+        </dl>
+        <dl class="kv">
+          <dt>Dutch</dt><dd>Native proficiency</dd>
+          <dt>English</dt><dd>Full professional proficiency</dd>
+          <dt>Spanish</dt><dd>Limited working proficiency</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-title">Selected publications</div>
+      <p class="pub">
+        <span class="authors"><strong>Luchtenbelt, H.G.H.</strong>, et al. (2024).</span>
+        Quantifying food security and mitigation risks consequential to climate change impacts on crop yields.
+        <em>Environmental Research Letters</em>, 20.
+        <a href="https://doi.org/10.1088/1748-9326/ad97d3">doi.org/10.1088/1748-9326/ad97d3</a>
+      </p>
+      <p class="pub">
+        <span class="authors"><strong>Luchtenbelt, H.G.H.</strong>, et al.</span>
+        A multi-scale assessment of planetary boundaries: the role of the food system in future transgressions and solutions.
+        <span class="tag">under review</span>
+      </p>
+      <p class="pub">Additional co-authored publications available on request.</p>
+    </section>
+
+  </div>
+</body>
+</html>

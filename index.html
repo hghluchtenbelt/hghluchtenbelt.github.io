@@ -16,14 +16,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0e11;
-      --surface: #11151a;
-      --surface-2: #151b21;
-      --line: rgba(160, 185, 200, 0.12);
-      --text: #e8edf1;
-      --muted: #96a3ad;
-      --accent: #2fae86;
-      --accent-dim: rgba(47, 174, 134, 0.12);
+      --bg: #0b0f0c;
+      --surface: #111710;
+      --surface-2: #161d15;
+      --line: rgba(150, 190, 160, 0.13);
+      --text: #e9f0ea;
+      --muted: #95a898;
+      --accent: #57b268;
+      --accent-dim: rgba(87, 178, 104, 0.12);
       --radius: 14px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,8 +44,19 @@
     .glow {
       position: fixed; inset: 0; z-index: -1; pointer-events: none;
       background:
-        radial-gradient(600px 400px at 85% -10%, rgba(47, 174, 134, 0.06), transparent 70%),
-        radial-gradient(700px 500px at -10% 40%, rgba(45, 156, 219, 0.04), transparent 70%);
+        radial-gradient(620px 420px at 85% -10%, rgba(87, 178, 104, 0.10), transparent 70%),
+        radial-gradient(720px 520px at -10% 35%, rgba(190, 168, 96, 0.045), transparent 70%),
+        radial-gradient(900px 600px at 50% 115%, rgba(60, 140, 85, 0.07), transparent 70%);
+    }
+
+    /* faint topographic contour texture (nods to land & climate) */
+    .texture {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27rgb%28130%2C185%2C145%29%27%20stroke-width%3D%271%27%3E%3Cpath%20d%3D%27M0%2025%20C%2050%205%2C%20150%2045%2C%20200%2025%27%2F%3E%3Cpath%20d%3D%27M0%2075%20C%2050%2055%2C%20150%2095%2C%20200%2075%27%2F%3E%3Cpath%20d%3D%27M0%20125%20C%2050%20105%2C%20150%20145%2C%20200%20125%27%2F%3E%3Cpath%20d%3D%27M0%20175%20C%2050%20155%2C%20150%20195%2C%20200%20175%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+      background-size: 200px 200px;
+      -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, #000, transparent 85%);
+              mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, #000, transparent 85%);
     }
 
     /* header */
@@ -53,7 +64,7 @@
       position: sticky; top: 0; z-index: 10;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      background: rgba(10, 15, 13, 0.75);
+      background: rgba(9, 14, 10, 0.80);
       border-bottom: 1px solid var(--line);
     }
     .nav {
@@ -99,9 +110,9 @@
       border: 1px solid var(--line); color: var(--text);
       background: var(--surface); transition: transform 0.15s, border-color 0.2s, background 0.2s;
     }
-    .btn:hover { transform: translateY(-2px); border-color: rgba(47, 174, 134, 0.5); }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #04231a; }
-    .btn.primary:hover { background: #3cbf95; }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(87, 178, 104, 0.5); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #06230f; }
+    .btn.primary:hover { background: #6cc47d; }
     .btn svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
     .btn.soon { border-style: dashed; color: var(--muted); cursor: default; }
     .btn.soon:hover { transform: none; border-color: var(--line); }
@@ -144,7 +155,7 @@
     .radar-pane {
       position: relative; min-height: 420px;
       background:
-        radial-gradient(circle at 50% 50%, rgba(47, 174, 134, 0.06), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(87, 178, 104, 0.06), transparent 60%),
         var(--bg);
       border-left: 1px solid var(--line);
       display: flex; align-items: center; justify-content: center;
@@ -152,17 +163,17 @@
     }
     .radar {
       position: relative; width: 330px; height: 330px; border-radius: 50%;
-      border: 1px solid rgba(47, 174, 134, 0.28);
+      border: 1px solid rgba(87, 178, 104, 0.28);
       background:
         repeating-radial-gradient(circle at 50% 50%,
           transparent 0, transparent 54px,
-          rgba(47, 174, 134, 0.16) 54px, rgba(47, 174, 134, 0.16) 55px),
-        linear-gradient(to right, transparent 49.7%, rgba(47, 174, 134, 0.14) 49.7%, rgba(47, 174, 134, 0.14) 50.3%, transparent 50.3%),
-        linear-gradient(to bottom, transparent 49.7%, rgba(47, 174, 134, 0.14) 49.7%, rgba(47, 174, 134, 0.14) 50.3%, transparent 50.3%);
+          rgba(87, 178, 104, 0.16) 54px, rgba(87, 178, 104, 0.16) 55px),
+        linear-gradient(to right, transparent 49.7%, rgba(87, 178, 104, 0.14) 49.7%, rgba(87, 178, 104, 0.14) 50.3%, transparent 50.3%),
+        linear-gradient(to bottom, transparent 49.7%, rgba(87, 178, 104, 0.14) 49.7%, rgba(87, 178, 104, 0.14) 50.3%, transparent 50.3%);
     }
     .sweep {
       position: absolute; inset: 0; border-radius: 50%;
-      background: conic-gradient(from 0deg, rgba(47, 174, 134, 0.22), transparent 70deg, transparent 360deg);
+      background: conic-gradient(from 0deg, rgba(87, 178, 104, 0.22), transparent 70deg, transparent 360deg);
       animation: sweep 4.5s linear infinite;
     }
     @keyframes sweep { to { transform: rotate(360deg); } }
@@ -174,7 +185,7 @@
     .blip {
       position: absolute; width: 9px; height: 9px; border-radius: 50%;
       left: var(--x); top: var(--y);
-      background: #5ecfa6; box-shadow: 0 0 8px rgba(47, 174, 134, 0.55);
+      background: #7fce8f; box-shadow: 0 0 8px rgba(87, 178, 104, 0.55);
       animation: blip 4.5s ease-out infinite; animation-delay: var(--d);
       opacity: 0.25;
     }
@@ -205,7 +216,7 @@
       border-radius: var(--radius); padding: 28px 28px;
       transition: transform 0.15s, border-color 0.2s;
     }
-    .card:hover { transform: translateY(-3px); border-color: rgba(47, 174, 134, 0.45); }
+    .card:hover { transform: translateY(-3px); border-color: rgba(87, 178, 104, 0.45); }
     .card h3 { font-size: 1.15rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
     .card p { color: var(--muted); font-size: 0.93rem; }
     .card .arrow { margin-left: auto; color: var(--accent); transition: transform 0.15s; }
@@ -274,6 +285,7 @@
 </head>
 <body>
   <div class="glow"></div>
+  <div class="texture"></div>
 
   <header>
     <div class="container nav">
@@ -281,7 +293,7 @@
       <nav class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#research">Research</a>
-        <a href="files/CV_luchtenbelt.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener">CV</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -391,7 +403,7 @@
             <h3>More on GitHub <span class="arrow">→</span></h3>
             <p>Scrapers, maps, bots and other experiments — new projects land here first.</p>
           </a>
-          <a class="card" href="files/CV_luchtenbelt.pdf" target="_blank" rel="noopener">
+          <a class="card" href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener">
             <h3>Curriculum vitae <span class="arrow">→</span></h3>
             <p>Background, education and work experience, as a one-page PDF.</p>
           </a>
