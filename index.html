@@ -281,6 +281,63 @@
     @media (max-width: 420px) {
       .radar { width: 270px; height: 270px; }
     }
+    /* ---------- forest hero scene ---------- */
+    .hero { position: relative; overflow: hidden; }
+    .hero > .container { position: relative; z-index: 1; }
+    .hero-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .hero-scene svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .hero-scene::after {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(11,15,12,0.84), rgba(11,15,12,0.26) 54%, transparent 82%),
+        linear-gradient(180deg, transparent 42%, rgba(11,15,12,0.5) 80%, var(--bg) 99%);
+    }
+
+    /* ---------- CV modal ---------- */
+    .modal[hidden] { display: none; }
+    .modal {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+    }
+    .modal-backdrop {
+      position: absolute; inset: 0; background: rgba(6, 10, 7, 0.72);
+      -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    }
+    .modal-card {
+      position: relative; z-index: 1;
+      width: min(820px, 94vw); height: min(92vh, 1180px);
+      display: flex; flex-direction: column;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      animation: modalIn 0.22s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(12px) scale(0.985); } }
+    .modal-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 11px 12px 11px 18px; border-bottom: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+    .modal-title { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 0.98rem; }
+    .modal-actions { display: flex; align-items: center; gap: 8px; }
+    .modal-btn {
+      text-decoration: none; font-size: 0.82rem; font-weight: 600; color: var(--text);
+      border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; white-space: nowrap;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .modal-btn:hover { border-color: rgba(87,178,104,0.5); background: var(--accent-dim); }
+    .modal-close {
+      background: none; border: none; color: var(--muted); cursor: pointer;
+      font-size: 1.55rem; line-height: 1; padding: 0 6px; border-radius: 8px;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-frame { flex: 1; width: 100%; border: none; background: #525659; }
+    @media (max-width: 560px) {
+      .modal { padding: 0; }
+      .modal-card { width: 100vw; height: 100vh; border-radius: 0; border: none; }
+      .modal-btn { padding: 6px 10px; font-size: 0.76rem; }
+      .modal-bar { padding-left: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -293,7 +350,7 @@
       <nav class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#research">Research</a>
-        <a href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener" data-cv>CV</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -302,6 +359,35 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
+      <div class="hero-scene" aria-hidden="true">
+        <svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#27422e"/>
+              <stop offset="0.30" stop-color="#182a1d"/>
+              <stop offset="0.50" stop-color="#335b41"/>
+              <stop offset="0.66" stop-color="#101a12"/>
+              <stop offset="0.80" stop-color="#0b0f0c"/>
+            </linearGradient>
+            <radialGradient id="sun" cx="0.76" cy="0.2" r="0.5">
+              <stop offset="0" stop-color="#bfe6c4" stop-opacity="0.22"/>
+              <stop offset="0.5" stop-color="#7ec089" stop-opacity="0.08"/>
+              <stop offset="1" stop-color="#7ec089" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect x="0" y="0" width="1440" height="620" fill="url(#sky)"/>
+          <rect x="0" y="0" width="1440" height="620" fill="url(#sun)"/>
+          <circle cx="1090" cy="146" r="120" fill="#bfe0c6" opacity="0.05"/>
+          <circle cx="1090" cy="146" r="72" fill="#cfe8d4" opacity="0.07"/>
+          <circle cx="1090" cy="146" r="38" fill="#e8f4ea" opacity="0.13"/>
+          <ellipse cx="720" cy="356" rx="900" ry="34" fill="#cfe6d4" opacity="0.05"/>
+          <ellipse cx="520" cy="392" rx="720" ry="26" fill="#cfe6d4" opacity="0.045"/>
+          <path d="M0 620 L0 348 L17.5 285.0 L34.1 348 L51.4 298.5 L68.5 348 L83.3 296.8 L97.8 348 L114.7 309.9 L138.1 348 L153.6 294.3 L165.8 348 L181.7 283.4 L192.5 348 L212.3 315.7 L230.3 348 L243.6 319.6 L256.5 348 L269.7 320.8 L286.0 348 L302.7 288.3 L320.3 348 L339.0 302.0 L355.7 348 L374.3 310.9 L393.6 348 L419.9 288.4 L437.5 348 L455.5 312.8 L476.3 348 L489.2 291.3 L507.5 348 L526.4 306.5 L540.7 348 L565.3 322.0 L583.9 348 L601.3 303.2 L613.7 348 L634.6 319.1 L657.4 348 L678.1 311.2 L694.7 348 L707.6 283.4 L722.3 348 L739.1 312.1 L761.9 348 L773.4 290.1 L789.7 348 L804.7 304.1 L818.9 348 L835.0 316.8 L848.4 348 L864.3 305.2 L885.9 348 L899.5 283.2 L915.8 348 L934.4 286.6 L956.2 348 L970.5 287.8 L986.0 348 L1001.8 282.4 L1023.6 348 L1037.1 291.1 L1053.4 348 L1068.1 319.1 L1085.3 348 L1099.6 312.3 L1113.0 348 L1130.4 303.9 L1149.8 348 L1171.3 299.0 L1193.1 348 L1211.2 315.8 L1234.7 348 L1258.5 312.0 L1277.0 348 L1293.1 284.4 L1306.4 348 L1323.8 286.7 L1336.0 348 L1353.8 317.8 L1372.8 348 L1388.6 312.5 L1399.5 348 L1417.0 289.1 L1438.2 348 L1455.1 315.0 L1440 348 L1440 348 L1440 620 Z" fill="#2f5139"/>
+          <path d="M0 620 L0 398 L24.4 356.7 L57.0 398 L82.3 351.2 L115.0 398 L138.2 308.2 L164.6 398 L188.0 340.1 L204.2 398 L232.6 319.6 L252.6 398 L283.0 355.3 L308.8 398 L337.3 340.6 L363.9 398 L385.9 325.4 L402.5 398 L433.8 304.2 L459.0 398 L484.7 323.7 L506.6 398 L530.4 340.5 L546.8 398 L578.0 321.6 L599.5 398 L620.7 320.6 L636.9 398 L652.7 328.2 L675.4 398 L695.7 329.6 L710.2 398 L732.5 321.0 L756.6 398 L782.4 337.1 L812.6 398 L834.6 324.6 L860.5 398 L883.4 320.3 L907.6 398 L927.1 302.2 L954.3 398 L974.9 335.4 L996.8 398 L1030.0 329.3 L1053.1 398 L1071.4 307.9 L1096.7 398 L1116.1 338.4 L1134.8 398 L1154.6 347.3 L1176.7 398 L1194.4 313.4 L1211.6 398 L1233.4 319.2 L1261.1 398 L1278.1 311.6 L1296.4 398 L1324.0 310.6 L1352.5 398 L1375.7 325.3 L1398.5 398 L1430.2 331.5 L1440 398 L1440 398 L1440 620 Z" fill="#1d3624"/>
+          <path d="M0 620 L0 452 L32.2 337.5 L61.1 452 L88.9 332.1 L113.4 452 L144.6 349.8 L184.7 452 L216.0 326.5 L247.2 452 L276.5 328.2 L307.1 452 L336.1 375.1 L370.1 452 L394.3 353.0 L429.0 452 L461.1 335.4 L495.1 452 L531.8 347.6 L566.9 452 L586.5 325.5 L614.4 452 L637.7 331.6 L667.0 452 L695.2 374.2 L733.5 452 L756.8 397.5 L784.7 452 L812.3 368.8 L844.5 452 L865.4 395.6 L894.1 452 L932.6 356.6 L964.2 452 L984.7 389.1 L1011.9 452 L1034.0 377.6 L1065.4 452 L1087.4 349.6 L1115.5 452 L1144.1 371.5 L1173.3 452 L1206.8 375.2 L1233.4 452 L1256.3 369.9 L1279.5 452 L1308.0 333.4 L1347.0 452 L1369.6 365.2 L1391.4 452 L1422.3 346.0 L1440 452 L1440 452 L1440 620 Z" fill="#112416"/>
+          <path d="M0 620 L0 516 L40.5 361.5 L79.6 516 L110.1 443.1 L148.1 516 L174.4 430.6 L213.7 516 L264.3 378.0 L298.3 516 L335.9 378.3 L376.5 516 L407.9 363.5 L452.2 516 L490.0 439.1 L541.8 516 L580.0 435.4 L606.3 516 L659.8 442.6 L696.3 516 L735.3 356.1 L774.9 516 L806.1 421.7 L843.9 516 L877.3 366.0 L906.3 516 L939.3 376.1 L987.2 516 L1037.8 413.8 L1082.6 516 L1135.1 388.2 L1182.5 516 L1220.9 401.4 L1268.4 516 L1321.1 412.1 L1366.5 516 L1422.9 441.7 L1440 516 L1440 516 L1440 620 Z" fill="#080c08"/>
+        </svg>
+      </div>
       <div class="container">
         <div class="eyebrow">Portfolio</div>
         <h1>Hermen Luchtenbelt</h1>
@@ -403,7 +489,7 @@
             <h3>More on GitHub <span class="arrow">→</span></h3>
             <p>Scrapers, maps, bots and other experiments — new projects land here first.</p>
           </a>
-          <a class="card" href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener">
+          <a class="card" href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener" data-cv>
             <h3>Curriculum vitae <span class="arrow">→</span></h3>
             <p>Background, education and work experience, as a one-page PDF.</p>
           </a>
@@ -457,6 +543,22 @@
     </section>
   </main>
 
+  <!-- CV pop-up -->
+  <div class="modal" id="cvModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Curriculum vitae — Hermen Luchtenbelt">
+      <div class="modal-bar">
+        <span class="modal-title">Curriculum vitae</span>
+        <span class="modal-actions">
+          <a class="modal-btn" href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener">Open in new tab &#8599;</a>
+          <a class="modal-btn" href="files/CV_luchtenbelt_2026.pdf" download>Download</a>
+          <button class="modal-close" type="button" data-close aria-label="Close CV">&times;</button>
+        </span>
+      </div>
+      <iframe class="modal-frame" title="Curriculum vitae" src="about:blank" loading="lazy"></iframe>
+    </div>
+  </div>
+
   <footer>
     <div class="container footer-row">
       <span>© <span id="year">2026</span> Hermen Luchtenbelt</span>
@@ -471,6 +573,23 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // CV pop-up
+    (function () {
+      var modal = document.getElementById("cvModal");
+      var frame = modal.querySelector(".modal-frame");
+      var loaded = false;
+      function openCv(e) {
+        if (e) e.preventDefault();
+        if (!loaded) { frame.src = "files/CV_luchtenbelt_2026.pdf"; loaded = true; }
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+      function closeCv() { modal.hidden = true; document.body.style.overflow = ""; }
+      document.querySelectorAll("[data-cv]").forEach(function (a) { a.addEventListener("click", openCv); });
+      modal.querySelectorAll("[data-close]").forEach(function (el) { el.addEventListener("click", closeCv); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeCv(); });
+    })();
   </script>
 </body>
 </html>
