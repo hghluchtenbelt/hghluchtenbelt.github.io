@@ -13,17 +13,17 @@
   <link rel="shortcut icon" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0f0c;
-      --surface: #111710;
-      --surface-2: #161d15;
-      --line: rgba(150, 190, 160, 0.13);
-      --text: #e9f0ea;
-      --muted: #95a898;
-      --accent: #57b268;
-      --accent-dim: rgba(87, 178, 104, 0.12);
+      --bg: #f5f7f1;
+      --surface: #ffffff;
+      --surface-2: #edf3e9;
+      --line: rgba(45, 90, 60, 0.17);
+      --text: #1c2a21;
+      --muted: #58685c;
+      --accent: #2e7d4f;
+      --accent-dim: rgba(46, 125, 79, 0.10);
       --radius: 14px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,7 +36,7 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3 { font-family: "Space Grotesk", "Inter", sans-serif; line-height: 1.15; }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; line-height: 1.15; }
     a { color: inherit; }
     .container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
 
@@ -44,16 +44,16 @@
     .glow {
       position: fixed; inset: 0; z-index: -1; pointer-events: none;
       background:
-        radial-gradient(620px 420px at 85% -10%, rgba(87, 178, 104, 0.10), transparent 70%),
-        radial-gradient(720px 520px at -10% 35%, rgba(190, 168, 96, 0.045), transparent 70%),
-        radial-gradient(900px 600px at 50% 115%, rgba(60, 140, 85, 0.07), transparent 70%);
+        radial-gradient(620px 420px at 85% -10%, rgba(46, 125, 79, 0.10), transparent 70%),
+        radial-gradient(720px 520px at -10% 35%, rgba(166, 138, 60, 0.05), transparent 70%),
+        radial-gradient(900px 600px at 50% 115%, rgba(46, 125, 79, 0.06), transparent 70%);
     }
 
     /* faint topographic contour texture (nods to land & climate) */
     .texture {
       position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      opacity: 0.05;
-      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27rgb%28130%2C185%2C145%29%27%20stroke-width%3D%271%27%3E%3Cpath%20d%3D%27M0%2025%20C%2050%205%2C%20150%2045%2C%20200%2025%27%2F%3E%3Cpath%20d%3D%27M0%2075%20C%2050%2055%2C%20150%2095%2C%20200%2075%27%2F%3E%3Cpath%20d%3D%27M0%20125%20C%2050%20105%2C%20150%20145%2C%20200%20125%27%2F%3E%3Cpath%20d%3D%27M0%20175%20C%2050%20155%2C%20150%20195%2C%20200%20175%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+      opacity: 0.07;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27200%27%20height%3D%27200%27%20viewBox%3D%270%200%20200%20200%27%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27rgb%2860%2C110%2C75%29%27%20stroke-width%3D%271%27%3E%3Cpath%20d%3D%27M0%2025%20C%2050%205%2C%20150%2045%2C%20200%2025%27%2F%3E%3Cpath%20d%3D%27M0%2075%20C%2050%2055%2C%20150%2095%2C%20200%2075%27%2F%3E%3Cpath%20d%3D%27M0%20125%20C%2050%20105%2C%20150%20145%2C%20200%20125%27%2F%3E%3Cpath%20d%3D%27M0%20175%20C%2050%20155%2C%20150%20195%2C%20200%20175%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
       background-size: 200px 200px;
       -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, #000, transparent 85%);
               mask-image: radial-gradient(ellipse 100% 80% at 50% 0%, #000, transparent 85%);
@@ -64,7 +64,7 @@
       position: sticky; top: 0; z-index: 10;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      background: rgba(9, 14, 10, 0.80);
+      background: rgba(245, 247, 241, 0.85);
       border-bottom: 1px solid var(--line);
     }
     .nav {
@@ -110,9 +110,9 @@
       border: 1px solid var(--line); color: var(--text);
       background: var(--surface); transition: transform 0.15s, border-color 0.2s, background 0.2s;
     }
-    .btn:hover { transform: translateY(-2px); border-color: rgba(87, 178, 104, 0.5); }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #06230f; }
-    .btn.primary:hover { background: #6cc47d; }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(46, 125, 79, 0.5); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #f7fbf5; }
+    .btn.primary:hover { background: #38935f; }
     .btn svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
     .btn.soon { border-style: dashed; color: var(--muted); cursor: default; }
     .btn.soon:hover { transform: none; border-color: var(--line); }
@@ -155,7 +155,7 @@
     .radar-pane {
       position: relative; min-height: 420px;
       background:
-        radial-gradient(circle at 50% 50%, rgba(87, 178, 104, 0.06), transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(46, 125, 79, 0.06), transparent 60%),
         var(--bg);
       border-left: 1px solid var(--line);
       display: flex; align-items: center; justify-content: center;
@@ -163,17 +163,17 @@
     }
     .radar {
       position: relative; width: 330px; height: 330px; border-radius: 50%;
-      border: 1px solid rgba(87, 178, 104, 0.28);
+      border: 1px solid rgba(46, 125, 79, 0.28);
       background:
         repeating-radial-gradient(circle at 50% 50%,
           transparent 0, transparent 54px,
-          rgba(87, 178, 104, 0.16) 54px, rgba(87, 178, 104, 0.16) 55px),
-        linear-gradient(to right, transparent 49.7%, rgba(87, 178, 104, 0.14) 49.7%, rgba(87, 178, 104, 0.14) 50.3%, transparent 50.3%),
-        linear-gradient(to bottom, transparent 49.7%, rgba(87, 178, 104, 0.14) 49.7%, rgba(87, 178, 104, 0.14) 50.3%, transparent 50.3%);
+          rgba(46, 125, 79, 0.16) 54px, rgba(46, 125, 79, 0.16) 55px),
+        linear-gradient(to right, transparent 49.7%, rgba(46, 125, 79, 0.14) 49.7%, rgba(46, 125, 79, 0.14) 50.3%, transparent 50.3%),
+        linear-gradient(to bottom, transparent 49.7%, rgba(46, 125, 79, 0.14) 49.7%, rgba(46, 125, 79, 0.14) 50.3%, transparent 50.3%);
     }
     .sweep {
       position: absolute; inset: 0; border-radius: 50%;
-      background: conic-gradient(from 0deg, rgba(87, 178, 104, 0.22), transparent 70deg, transparent 360deg);
+      background: conic-gradient(from 0deg, rgba(46, 125, 79, 0.22), transparent 70deg, transparent 360deg);
       animation: sweep 4.5s linear infinite;
     }
     @keyframes sweep { to { transform: rotate(360deg); } }
@@ -185,7 +185,7 @@
     .blip {
       position: absolute; width: 9px; height: 9px; border-radius: 50%;
       left: var(--x); top: var(--y);
-      background: #7fce8f; box-shadow: 0 0 8px rgba(87, 178, 104, 0.55);
+      background: #3f9c68; box-shadow: 0 0 8px rgba(46, 125, 79, 0.55);
       animation: blip 4.5s ease-out infinite; animation-delay: var(--d);
       opacity: 0.25;
     }
@@ -216,7 +216,7 @@
       border-radius: var(--radius); padding: 28px 28px;
       transition: transform 0.15s, border-color 0.2s;
     }
-    .card:hover { transform: translateY(-3px); border-color: rgba(87, 178, 104, 0.45); }
+    .card:hover { transform: translateY(-3px); border-color: rgba(46, 125, 79, 0.45); }
     .card h3 { font-size: 1.15rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
     .card p { color: var(--muted); font-size: 0.93rem; }
     .card .arrow { margin-left: auto; color: var(--accent); transition: transform 0.15s; }
@@ -290,8 +290,8 @@
     .hero-scene::after {
       content: ""; position: absolute; inset: 0;
       background:
-        linear-gradient(90deg, rgba(11,15,12,0.84), rgba(11,15,12,0.26) 54%, transparent 82%),
-        linear-gradient(180deg, transparent 42%, rgba(11,15,12,0.5) 80%, var(--bg) 99%);
+        linear-gradient(90deg, rgba(245,247,241,0.90), rgba(245,247,241,0.32) 54%, transparent 82%),
+        linear-gradient(180deg, transparent 42%, rgba(245,247,241,0.55) 80%, var(--bg) 99%);
     }
 
     /* ---------- CV modal ---------- */
@@ -301,7 +301,7 @@
       display: flex; align-items: center; justify-content: center; padding: 24px;
     }
     .modal-backdrop {
-      position: absolute; inset: 0; background: rgba(6, 10, 7, 0.72);
+      position: absolute; inset: 0; background: rgba(25, 40, 30, 0.45);
       -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
     }
     .modal-card {
@@ -326,7 +326,7 @@
       border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; white-space: nowrap;
       transition: border-color 0.2s, background 0.2s;
     }
-    .modal-btn:hover { border-color: rgba(87,178,104,0.5); background: var(--accent-dim); }
+    .modal-btn:hover { border-color: rgba(46,125,79,0.5); background: var(--accent-dim); }
     .modal-close {
       background: none; border: none; color: var(--muted); cursor: pointer;
       font-size: 1.55rem; line-height: 1; padding: 0 6px; border-radius: 8px;
@@ -348,14 +348,14 @@
 
     /* shimmering gradient section titles + accent underline */
     .section-head h2, .contact-box h2 {
-      background-image: linear-gradient(100deg, var(--text) 20%, #c6ead0 45%, var(--accent) 55%, var(--text) 80%);
+      background-image: linear-gradient(100deg, var(--text) 20%, #1f5c38 45%, var(--accent) 55%, var(--text) 80%);
       background-size: 220% auto; -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent; color: transparent;
     }
     .section-head h2 { position: relative; display: inline-block; padding-bottom: 12px; }
     .section-head h2::after {
       content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 56px;
-      border-radius: 3px; background: linear-gradient(90deg, var(--accent), rgba(87,178,104,0));
+      border-radius: 3px; background: linear-gradient(90deg, var(--accent), rgba(46,125,79,0));
     }
 
     /* animated nav underline */
@@ -368,28 +368,28 @@
     .nav-links a:hover::after { transform: scaleX(1); }
 
     /* primary button: sheen sweep + glow */
-    .btn.primary { position: relative; overflow: hidden; box-shadow: 0 8px 22px rgba(87,178,104,.26); }
+    .btn.primary { position: relative; overflow: hidden; box-shadow: 0 8px 22px rgba(46,125,79,.28); }
     .btn.primary > * { position: relative; z-index: 1; }
     .btn.primary::after {
       content: ""; position: absolute; top: 0; left: -130%; width: 55%; height: 100%; z-index: 0;
-      background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.55), transparent);
       transform: skewX(-18deg); transition: left .6s ease;
     }
     .btn.primary:hover::after { left: 150%; }
-    .btn.primary:hover { box-shadow: 0 12px 32px rgba(87,178,104,.42); }
+    .btn.primary:hover { box-shadow: 0 12px 32px rgba(46,125,79,.38); }
 
     /* richer card / featured hover */
     .card { transition: transform .2s ease, border-color .25s ease, box-shadow .3s ease, background .25s ease; }
     .card:hover {
-      box-shadow: 0 18px 42px rgba(0,0,0,.38), 0 0 0 1px rgba(87,178,104,.35), 0 0 34px rgba(87,178,104,.06);
+      box-shadow: 0 18px 42px rgba(35,70,45,.14), 0 0 0 1px rgba(46,125,79,.35), 0 0 34px rgba(46,125,79,.06);
       background: linear-gradient(160deg, var(--surface-2), var(--surface));
     }
     .featured { transition: box-shadow .35s ease, transform .35s ease; }
-    .featured:hover { box-shadow: 0 24px 64px rgba(0,0,0,.42), 0 0 44px rgba(87,178,104,.09); }
+    .featured:hover { box-shadow: 0 24px 64px rgba(35,70,45,.16), 0 0 44px rgba(46,125,79,.09); }
     .chip { transition: border-color .2s, color .2s, background .2s; }
-    .chip:hover { border-color: rgba(87,178,104,.5); color: var(--text); background: var(--accent-dim); }
+    .chip:hover { border-color: rgba(46,125,79,.5); color: var(--text); background: var(--accent-dim); }
     .pub, .contact-box { transition: box-shadow .35s ease; }
-    .contact-box:hover { box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 40px rgba(87,178,104,.08); }
+    .contact-box:hover { box-shadow: 0 20px 60px rgba(35,70,45,.14), 0 0 40px rgba(46,125,79,.08); }
 
     /* living ambient motion (respects reduced-motion) */
     @media (prefers-reduced-motion: no-preference) {
@@ -425,11 +425,11 @@
         <svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#27422e"/>
-              <stop offset="0.30" stop-color="#182a1d"/>
-              <stop offset="0.50" stop-color="#335b41"/>
-              <stop offset="0.66" stop-color="#101a12"/>
-              <stop offset="0.80" stop-color="#0b0f0c"/>
+              <stop offset="0" stop-color="#b9d2b0"/>
+              <stop offset="0.30" stop-color="#d7e6cc"/>
+              <stop offset="0.50" stop-color="#f4f9ee"/>
+              <stop offset="0.66" stop-color="#dbe7d2"/>
+              <stop offset="0.80" stop-color="#f5f7f1"/>
             </linearGradient>
             <radialGradient id="sun" cx="0.76" cy="0.2" r="0.5">
               <stop offset="0" stop-color="#bfe6c4" stop-opacity="0.22"/>
@@ -444,10 +444,10 @@
           <circle cx="1090" cy="146" r="38" fill="#e8f4ea" opacity="0.13"/>
           <ellipse cx="720" cy="356" rx="900" ry="34" fill="#cfe6d4" opacity="0.05"/>
           <ellipse cx="520" cy="392" rx="720" ry="26" fill="#cfe6d4" opacity="0.045"/>
-          <path d="M0 620 L0 348 L17.5 285.0 L34.1 348 L51.4 298.5 L68.5 348 L83.3 296.8 L97.8 348 L114.7 309.9 L138.1 348 L153.6 294.3 L165.8 348 L181.7 283.4 L192.5 348 L212.3 315.7 L230.3 348 L243.6 319.6 L256.5 348 L269.7 320.8 L286.0 348 L302.7 288.3 L320.3 348 L339.0 302.0 L355.7 348 L374.3 310.9 L393.6 348 L419.9 288.4 L437.5 348 L455.5 312.8 L476.3 348 L489.2 291.3 L507.5 348 L526.4 306.5 L540.7 348 L565.3 322.0 L583.9 348 L601.3 303.2 L613.7 348 L634.6 319.1 L657.4 348 L678.1 311.2 L694.7 348 L707.6 283.4 L722.3 348 L739.1 312.1 L761.9 348 L773.4 290.1 L789.7 348 L804.7 304.1 L818.9 348 L835.0 316.8 L848.4 348 L864.3 305.2 L885.9 348 L899.5 283.2 L915.8 348 L934.4 286.6 L956.2 348 L970.5 287.8 L986.0 348 L1001.8 282.4 L1023.6 348 L1037.1 291.1 L1053.4 348 L1068.1 319.1 L1085.3 348 L1099.6 312.3 L1113.0 348 L1130.4 303.9 L1149.8 348 L1171.3 299.0 L1193.1 348 L1211.2 315.8 L1234.7 348 L1258.5 312.0 L1277.0 348 L1293.1 284.4 L1306.4 348 L1323.8 286.7 L1336.0 348 L1353.8 317.8 L1372.8 348 L1388.6 312.5 L1399.5 348 L1417.0 289.1 L1438.2 348 L1455.1 315.0 L1440 348 L1440 348 L1440 620 Z" fill="#2f5139"/>
-          <path d="M0 620 L0 398 L24.4 356.7 L57.0 398 L82.3 351.2 L115.0 398 L138.2 308.2 L164.6 398 L188.0 340.1 L204.2 398 L232.6 319.6 L252.6 398 L283.0 355.3 L308.8 398 L337.3 340.6 L363.9 398 L385.9 325.4 L402.5 398 L433.8 304.2 L459.0 398 L484.7 323.7 L506.6 398 L530.4 340.5 L546.8 398 L578.0 321.6 L599.5 398 L620.7 320.6 L636.9 398 L652.7 328.2 L675.4 398 L695.7 329.6 L710.2 398 L732.5 321.0 L756.6 398 L782.4 337.1 L812.6 398 L834.6 324.6 L860.5 398 L883.4 320.3 L907.6 398 L927.1 302.2 L954.3 398 L974.9 335.4 L996.8 398 L1030.0 329.3 L1053.1 398 L1071.4 307.9 L1096.7 398 L1116.1 338.4 L1134.8 398 L1154.6 347.3 L1176.7 398 L1194.4 313.4 L1211.6 398 L1233.4 319.2 L1261.1 398 L1278.1 311.6 L1296.4 398 L1324.0 310.6 L1352.5 398 L1375.7 325.3 L1398.5 398 L1430.2 331.5 L1440 398 L1440 398 L1440 620 Z" fill="#1d3624"/>
-          <path d="M0 620 L0 452 L32.2 337.5 L61.1 452 L88.9 332.1 L113.4 452 L144.6 349.8 L184.7 452 L216.0 326.5 L247.2 452 L276.5 328.2 L307.1 452 L336.1 375.1 L370.1 452 L394.3 353.0 L429.0 452 L461.1 335.4 L495.1 452 L531.8 347.6 L566.9 452 L586.5 325.5 L614.4 452 L637.7 331.6 L667.0 452 L695.2 374.2 L733.5 452 L756.8 397.5 L784.7 452 L812.3 368.8 L844.5 452 L865.4 395.6 L894.1 452 L932.6 356.6 L964.2 452 L984.7 389.1 L1011.9 452 L1034.0 377.6 L1065.4 452 L1087.4 349.6 L1115.5 452 L1144.1 371.5 L1173.3 452 L1206.8 375.2 L1233.4 452 L1256.3 369.9 L1279.5 452 L1308.0 333.4 L1347.0 452 L1369.6 365.2 L1391.4 452 L1422.3 346.0 L1440 452 L1440 452 L1440 620 Z" fill="#112416"/>
-          <path d="M0 620 L0 516 L40.5 361.5 L79.6 516 L110.1 443.1 L148.1 516 L174.4 430.6 L213.7 516 L264.3 378.0 L298.3 516 L335.9 378.3 L376.5 516 L407.9 363.5 L452.2 516 L490.0 439.1 L541.8 516 L580.0 435.4 L606.3 516 L659.8 442.6 L696.3 516 L735.3 356.1 L774.9 516 L806.1 421.7 L843.9 516 L877.3 366.0 L906.3 516 L939.3 376.1 L987.2 516 L1037.8 413.8 L1082.6 516 L1135.1 388.2 L1182.5 516 L1220.9 401.4 L1268.4 516 L1321.1 412.1 L1366.5 516 L1422.9 441.7 L1440 516 L1440 516 L1440 620 Z" fill="#080c08"/>
+          <path d="M0 620 L0 348 L17.5 285.0 L34.1 348 L51.4 298.5 L68.5 348 L83.3 296.8 L97.8 348 L114.7 309.9 L138.1 348 L153.6 294.3 L165.8 348 L181.7 283.4 L192.5 348 L212.3 315.7 L230.3 348 L243.6 319.6 L256.5 348 L269.7 320.8 L286.0 348 L302.7 288.3 L320.3 348 L339.0 302.0 L355.7 348 L374.3 310.9 L393.6 348 L419.9 288.4 L437.5 348 L455.5 312.8 L476.3 348 L489.2 291.3 L507.5 348 L526.4 306.5 L540.7 348 L565.3 322.0 L583.9 348 L601.3 303.2 L613.7 348 L634.6 319.1 L657.4 348 L678.1 311.2 L694.7 348 L707.6 283.4 L722.3 348 L739.1 312.1 L761.9 348 L773.4 290.1 L789.7 348 L804.7 304.1 L818.9 348 L835.0 316.8 L848.4 348 L864.3 305.2 L885.9 348 L899.5 283.2 L915.8 348 L934.4 286.6 L956.2 348 L970.5 287.8 L986.0 348 L1001.8 282.4 L1023.6 348 L1037.1 291.1 L1053.4 348 L1068.1 319.1 L1085.3 348 L1099.6 312.3 L1113.0 348 L1130.4 303.9 L1149.8 348 L1171.3 299.0 L1193.1 348 L1211.2 315.8 L1234.7 348 L1258.5 312.0 L1277.0 348 L1293.1 284.4 L1306.4 348 L1323.8 286.7 L1336.0 348 L1353.8 317.8 L1372.8 348 L1388.6 312.5 L1399.5 348 L1417.0 289.1 L1438.2 348 L1455.1 315.0 L1440 348 L1440 348 L1440 620 Z" fill="#a3c19e"/>
+          <path d="M0 620 L0 398 L24.4 356.7 L57.0 398 L82.3 351.2 L115.0 398 L138.2 308.2 L164.6 398 L188.0 340.1 L204.2 398 L232.6 319.6 L252.6 398 L283.0 355.3 L308.8 398 L337.3 340.6 L363.9 398 L385.9 325.4 L402.5 398 L433.8 304.2 L459.0 398 L484.7 323.7 L506.6 398 L530.4 340.5 L546.8 398 L578.0 321.6 L599.5 398 L620.7 320.6 L636.9 398 L652.7 328.2 L675.4 398 L695.7 329.6 L710.2 398 L732.5 321.0 L756.6 398 L782.4 337.1 L812.6 398 L834.6 324.6 L860.5 398 L883.4 320.3 L907.6 398 L927.1 302.2 L954.3 398 L974.9 335.4 L996.8 398 L1030.0 329.3 L1053.1 398 L1071.4 307.9 L1096.7 398 L1116.1 338.4 L1134.8 398 L1154.6 347.3 L1176.7 398 L1194.4 313.4 L1211.6 398 L1233.4 319.2 L1261.1 398 L1278.1 311.6 L1296.4 398 L1324.0 310.6 L1352.5 398 L1375.7 325.3 L1398.5 398 L1430.2 331.5 L1440 398 L1440 398 L1440 620 Z" fill="#7fa681"/>
+          <path d="M0 620 L0 452 L32.2 337.5 L61.1 452 L88.9 332.1 L113.4 452 L144.6 349.8 L184.7 452 L216.0 326.5 L247.2 452 L276.5 328.2 L307.1 452 L336.1 375.1 L370.1 452 L394.3 353.0 L429.0 452 L461.1 335.4 L495.1 452 L531.8 347.6 L566.9 452 L586.5 325.5 L614.4 452 L637.7 331.6 L667.0 452 L695.2 374.2 L733.5 452 L756.8 397.5 L784.7 452 L812.3 368.8 L844.5 452 L865.4 395.6 L894.1 452 L932.6 356.6 L964.2 452 L984.7 389.1 L1011.9 452 L1034.0 377.6 L1065.4 452 L1087.4 349.6 L1115.5 452 L1144.1 371.5 L1173.3 452 L1206.8 375.2 L1233.4 452 L1256.3 369.9 L1279.5 452 L1308.0 333.4 L1347.0 452 L1369.6 365.2 L1391.4 452 L1422.3 346.0 L1440 452 L1440 452 L1440 620 Z" fill="#5a8161"/>
+          <path d="M0 620 L0 516 L40.5 361.5 L79.6 516 L110.1 443.1 L148.1 516 L174.4 430.6 L213.7 516 L264.3 378.0 L298.3 516 L335.9 378.3 L376.5 516 L407.9 363.5 L452.2 516 L490.0 439.1 L541.8 516 L580.0 435.4 L606.3 516 L659.8 442.6 L696.3 516 L735.3 356.1 L774.9 516 L806.1 421.7 L843.9 516 L877.3 366.0 L906.3 516 L939.3 376.1 L987.2 516 L1037.8 413.8 L1082.6 516 L1135.1 388.2 L1182.5 516 L1220.9 401.4 L1268.4 516 L1321.1 412.1 L1366.5 516 L1422.9 441.7 L1440 516 L1440 516 L1440 620 Z" fill="#35533e"/>
         </svg>
       </div>
       <div class="container">
@@ -684,6 +684,7 @@
       if (!("IntersectionObserver" in window)) return;
       var els = document.querySelectorAll(".section-head, .featured, .card, .pub, .contact-box");
       els.forEach(function (el) { el.classList.add("reveal"); });
+      
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
