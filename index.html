@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hermen Luchtenbelt — Projects</title>
-  <meta name="description" content="Personal site of Hermen Luchtenbelt — projects, code and contact.">
+  <title>Hermen Luchtenbelt · Projects</title>
+  <meta name="description" content="Personal site of Hermen Luchtenbelt. Projects, code and contact.">
   <meta name="author" content="Hermen Luchtenbelt">
-  <meta property="og:title" content="Hermen Luchtenbelt — Projects">
+  <meta property="og:title" content="Hermen Luchtenbelt · Projects">
   <meta property="og:description" content="Projects, code and contact. Featuring Vogelradar: rare bird sightings on a live map.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hghluchtenbelt.github.io/">
@@ -338,6 +338,67 @@
       .modal-btn { padding: 6px 10px; font-size: 0.76rem; }
       .modal-bar { padding-left: 14px; }
     }
+    /* ================= UI polish ================= */
+    /* scroll reveal */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1); will-change: opacity, transform; }
+    .reveal.in { opacity: 1; transform: none; }
+    .card-grid .card:nth-child(2) { transition-delay: .07s; }
+    .card-grid .card:nth-child(3) { transition-delay: .14s; }
+
+    /* shimmering gradient section titles + accent underline */
+    .section-head h2, .contact-box h2 {
+      background-image: linear-gradient(100deg, var(--text) 20%, #c6ead0 45%, var(--accent) 55%, var(--text) 80%);
+      background-size: 220% auto; -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .section-head h2 { position: relative; display: inline-block; padding-bottom: 12px; }
+    .section-head h2::after {
+      content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 56px;
+      border-radius: 3px; background: linear-gradient(90deg, var(--accent), rgba(87,178,104,0));
+    }
+
+    /* animated nav underline */
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 2px;
+      background: var(--accent); border-radius: 2px;
+      transform: scaleX(0); transform-origin: left center; transition: transform .28s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* primary button: sheen sweep + glow */
+    .btn.primary { position: relative; overflow: hidden; box-shadow: 0 8px 22px rgba(87,178,104,.26); }
+    .btn.primary > * { position: relative; z-index: 1; }
+    .btn.primary::after {
+      content: ""; position: absolute; top: 0; left: -130%; width: 55%; height: 100%; z-index: 0;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
+      transform: skewX(-18deg); transition: left .6s ease;
+    }
+    .btn.primary:hover::after { left: 150%; }
+    .btn.primary:hover { box-shadow: 0 12px 32px rgba(87,178,104,.42); }
+
+    /* richer card / featured hover */
+    .card { transition: transform .2s ease, border-color .25s ease, box-shadow .3s ease, background .25s ease; }
+    .card:hover {
+      box-shadow: 0 18px 42px rgba(0,0,0,.38), 0 0 0 1px rgba(87,178,104,.35), 0 0 34px rgba(87,178,104,.06);
+      background: linear-gradient(160deg, var(--surface-2), var(--surface));
+    }
+    .featured { transition: box-shadow .35s ease, transform .35s ease; }
+    .featured:hover { box-shadow: 0 24px 64px rgba(0,0,0,.42), 0 0 44px rgba(87,178,104,.09); }
+    .chip { transition: border-color .2s, color .2s, background .2s; }
+    .chip:hover { border-color: rgba(87,178,104,.5); color: var(--text); background: var(--accent-dim); }
+    .pub, .contact-box { transition: box-shadow .35s ease; }
+    .contact-box:hover { box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 40px rgba(87,178,104,.08); }
+
+    /* living ambient motion (respects reduced-motion) */
+    @media (prefers-reduced-motion: no-preference) {
+      .glow { animation: glowDrift 22s ease-in-out infinite alternate; }
+      @keyframes glowDrift { from { transform: translate3d(-1.5%, -1%, 0) scale(1.02); } to { transform: translate3d(2%, 1.6%, 0) scale(1.07); } }
+      .section-head h2, .contact-box h2 { animation: titleShimmer 7s linear infinite; }
+      @keyframes titleShimmer { to { background-position: 220% center; } }
+      .hero-scene svg > circle { transform-box: fill-box; transform-origin: center; animation: sunBreathe 10s ease-in-out infinite; }
+      @keyframes sunBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+    }
   </style>
 </head>
 <body>
@@ -393,7 +454,7 @@
         <h1>Hermen Luchtenbelt</h1>
         <p class="lede">
           Climate &amp; land-use researcher who builds <strong>small, useful applications on open
-          data</strong> — from a live map of rare bird sightings to a personal training copilot.
+          data</strong>, from a live map of rare bird sightings to a personal training copilot.
         </p>
         <div class="hero-links">
           <a class="btn primary" href="#projects">View projects</a>
@@ -414,7 +475,7 @@
       <div class="container">
         <div class="section-head">
           <h2>Projects</h2>
-          <p>Things I build in my spare time — mostly small, useful apps on top of open data.</p>
+          <p>Things I build in my spare time. Mostly small, useful apps on top of open data.</p>
         </div>
 
         <!-- Featured: Vogelradar -->
@@ -429,7 +490,7 @@
             <ul class="feature-list">
               <li>Interactive map of recent sightings, sorted by distance from your location</li>
               <li>Filters for rarity level and time window</li>
-              <li>"Wish birds" — pick species and get push notifications when one shows up nearby</li>
+              <li>"Wish birds": pick species and get push notifications when one shows up nearby</li>
               <li>Data refreshes automatically every hour</li>
             </ul>
             <div class="chips">
@@ -487,7 +548,7 @@
           </a>
           <a class="card" href="https://github.com/hghluchtenbelt" target="_blank" rel="noopener">
             <h3>More on GitHub <span class="arrow">→</span></h3>
-            <p>Scrapers, maps, bots and other experiments — new projects land here first.</p>
+            <p>Scrapers, maps, bots and other experiments. New projects land here first.</p>
           </a>
           <a class="card" href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener" data-cv>
             <h3>Curriculum vitae <span class="arrow">→</span></h3>
@@ -546,7 +607,7 @@
   <!-- CV pop-up -->
   <div class="modal" id="cvModal" hidden>
     <div class="modal-backdrop" data-close></div>
-    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Curriculum vitae — Hermen Luchtenbelt">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Curriculum vitae of Hermen Luchtenbelt">
       <div class="modal-bar">
         <span class="modal-title">Curriculum vitae</span>
         <span class="modal-actions">
@@ -589,6 +650,19 @@
       document.querySelectorAll("[data-cv]").forEach(function (a) { a.addEventListener("click", openCv); });
       modal.querySelectorAll("[data-close]").forEach(function (el) { el.addEventListener("click", closeCv); });
       document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeCv(); });
+    })();
+    // scroll reveal (progressive enhancement; content stays visible without JS)
+    (function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (!("IntersectionObserver" in window)) return;
+      var els = document.querySelectorAll(".section-head, .featured, .card, .pub, .contact-box");
+      els.forEach(function (el) { el.classList.add("reveal"); });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      els.forEach(function (el) { io.observe(el); });
     })();
   </script>
 </body>
