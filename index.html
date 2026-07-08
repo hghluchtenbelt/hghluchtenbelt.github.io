@@ -332,7 +332,16 @@
       font-size: 1.55rem; line-height: 1; padding: 0 6px; border-radius: 8px;
     }
     .modal-close:hover { color: var(--text); }
-    .modal-frame { flex: 1; width: 100%; border: none; background: #525659; }
+    .modal-frame {
+      flex: 1; width: 100%; overflow-y: auto; background: var(--surface-2);
+      padding: 20px; -webkit-overflow-scrolling: touch;
+    }
+    .modal-frame img {
+      display: block; width: 100%; max-width: 740px; height: auto; margin: 0 auto;
+      background: #fff; border-radius: 6px;
+      box-shadow: 0 6px 26px rgba(25, 50, 33, 0.18);
+    }
+    @media (max-width: 560px) { .modal-frame { padding: 10px; } }
     @media (max-width: 560px) {
       .modal { padding: 0; }
       .modal-card { width: 100vw; height: 100vh; border-radius: 0; border: none; }
@@ -412,7 +421,7 @@
       <nav class="nav-links">
         <a href="#research">Research</a>
         <a href="#projects">Projects</a>
-        <a href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener" data-cv>CV</a>
+        <a href="files/CV_luchtenbelt_2026.png" target="_blank" rel="noopener" data-cv>CV</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -608,9 +617,9 @@
             <h3>More on GitHub <span class="arrow">→</span></h3>
             <p>Scrapers, maps, bots and other experiments. New projects land here first.</p>
           </a>
-          <a class="card" href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener" data-cv>
+          <a class="card" href="files/CV_luchtenbelt_2026.png" target="_blank" rel="noopener" data-cv>
             <h3>Curriculum vitae <span class="arrow">→</span></h3>
-            <p>Background, education and work experience, as a one-page PDF.</p>
+            <p>Background, education and work experience, on a single page.</p>
           </a>
         </div>
       </div>
@@ -638,12 +647,14 @@
       <div class="modal-bar">
         <span class="modal-title">Curriculum vitae</span>
         <span class="modal-actions">
-          <a class="modal-btn" href="files/CV_luchtenbelt_2026.pdf" target="_blank" rel="noopener">Open in new tab &#8599;</a>
-          <a class="modal-btn" href="files/CV_luchtenbelt_2026.pdf" download>Download</a>
+          <a class="modal-btn" href="files/CV_luchtenbelt_2026.png" target="_blank" rel="noopener">Open in new tab &#8599;</a>
+          <a class="modal-btn" href="files/CV_luchtenbelt_2026.pdf" download>Download PDF</a>
           <button class="modal-close" type="button" data-close aria-label="Close CV">&times;</button>
         </span>
       </div>
-      <iframe class="modal-frame" title="Curriculum vitae" src="about:blank" loading="lazy"></iframe>
+      <div class="modal-frame">
+        <img alt="Curriculum vitae of Hermen Luchtenbelt" decoding="async">
+      </div>
     </div>
   </div>
 
@@ -665,11 +676,11 @@
     // CV pop-up
     (function () {
       var modal = document.getElementById("cvModal");
-      var frame = modal.querySelector(".modal-frame");
+      var frame = modal.querySelector(".modal-frame img");
       var loaded = false;
       function openCv(e) {
         if (e) e.preventDefault();
-        if (!loaded) { frame.src = "files/CV_luchtenbelt_2026.pdf"; loaded = true; }
+        if (!loaded) { frame.src = "files/CV_luchtenbelt_2026.png"; loaded = true; }
         modal.hidden = false;
         document.body.style.overflow = "hidden";
       }
