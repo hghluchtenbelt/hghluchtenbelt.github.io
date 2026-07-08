@@ -85,12 +85,13 @@
 
     /* hero */
     .hero { padding: 110px 0 90px; }
+    .hero .container { text-align: center; }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
       color: var(--muted); font-size: 0.8rem; font-weight: 600;
       letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 18px;
     }
-    .eyebrow::before {
+    .eyebrow::before, .eyebrow::after {
       content: ""; width: 22px; height: 1px; background: var(--accent);
     }
     .hero h1 {
@@ -99,10 +100,10 @@
     }
     .lede {
       font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-      color: var(--muted); max-width: 620px; margin-bottom: 36px;
+      color: var(--muted); max-width: 620px; margin: 0 auto 36px;
     }
     .lede strong { color: var(--text); font-weight: 500; }
-    .hero-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
     .btn {
       display: inline-flex; align-items: center; gap: 9px;
       padding: 11px 20px; border-radius: 999px;
@@ -279,6 +280,26 @@
       .featured-body { padding: 32px 26px; }
       .nav-links { gap: 18px; }
     }
+    @media (max-width: 560px) {
+      body { overflow-x: clip; }
+      .container { padding: 0 18px; }
+      .nav { flex-direction: column; height: auto; padding: 10px 0 12px; gap: 4px; }
+      .nav-links { gap: 20px; }
+      .hero { padding: 56px 0 48px; }
+      .eyebrow { font-size: 0.66rem; letter-spacing: 0.09em; }
+      .eyebrow::before, .eyebrow::after { width: 14px; }
+      section { padding: 52px 0; }
+      .section-head { margin-bottom: 26px; }
+      .featured-body { padding: 26px 20px; }
+      .featured h3 { font-size: 1.5rem; }
+      .pub { padding: 26px 20px; }
+      .pub h3 { font-size: 1.28rem; }
+      .card { padding: 22px 20px; }
+      .contact-box { padding: 44px 20px; }
+      .footer-row { flex-direction: column; justify-content: center; text-align: center; gap: 8px; }
+      .btn { padding: 10px 16px; font-size: 0.9rem; }
+      .radar-pane { min-height: 330px; }
+    }
     @media (max-width: 420px) {
       .radar { width: 270px; height: 270px; }
     }
@@ -290,8 +311,8 @@
     .hero-scene::after {
       content: ""; position: absolute; inset: 0;
       background:
-        linear-gradient(90deg, rgba(245,247,241,0.90), rgba(245,247,241,0.32) 54%, transparent 82%),
-        linear-gradient(180deg, transparent 42%, rgba(245,247,241,0.55) 80%, var(--bg) 99%);
+        radial-gradient(ellipse 70% 62% at 50% 36%, rgba(245,247,241,0.62), transparent 100%),
+        linear-gradient(180deg, rgba(245,247,241,0.48), rgba(245,247,241,0.26) 45%, rgba(245,247,241,0.60) 78%, var(--bg) 99%);
     }
 
     /* ---------- CV modal ---------- */
