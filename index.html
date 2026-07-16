@@ -115,8 +115,6 @@
     .btn.primary { background: var(--accent); border-color: var(--accent); color: #f7fbf5; }
     .btn.primary:hover { background: #38935f; }
     .btn svg { width: 17px; height: 17px; fill: currentColor; flex: none; }
-    .btn.soon { border-style: dashed; color: var(--muted); cursor: default; }
-    .btn.soon:hover { transform: none; border-color: var(--line); }
 
     /* sections */
     section { padding: 70px 0; }
@@ -225,6 +223,7 @@
     .card.wide { grid-column: 1 / -1; }
     .card.wide p { max-width: 640px; }
     .card .chips { margin-bottom: 0; margin-top: 18px; }
+    .card-url { color: var(--accent); font-size: 0.9rem; font-weight: 600; margin-top: 16px; }
     .badge-small {
       font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--accent); background: var(--accent-dim);
@@ -247,6 +246,21 @@
     .pub-desc { color: var(--muted); max-width: 720px; margin-bottom: 26px; }
     .pub-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .pub + .pub { margin-top: 18px; }
+    .pub-more { margin-top: 28px; }
+    .pub-more-title {
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 12px;
+    }
+    .pub-list { list-style: none; display: grid; gap: 10px; }
+    .pub-list li {
+      display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px;
+      padding: 15px 20px; background: var(--surface);
+      border: 1px solid var(--line); border-radius: var(--radius);
+    }
+    .pub-list a { text-decoration: none; font-weight: 500; }
+    .pub-list a:hover { color: var(--accent); }
+    .pub-venue { color: var(--muted); font-size: 0.85rem; white-space: nowrap; }
     @media (max-width: 860px) {
       .pub { padding: 30px 26px; }
     }
@@ -539,16 +553,10 @@
             <div class="featured-actions">
               <a class="btn primary" href="https://vogel-radar.nl" target="_blank" rel="noopener">Open vogel-radar.nl</a>
               <a class="btn" href="https://github.com/hghluchtenbelt/vogelradar2" target="_blank" rel="noopener">Source on GitHub</a>
-              <!-- Once the app is live, replace the span below with:
-              <a class="btn" href="https://play.google.com/store/apps/details?id=nl.vogelradar.app" target="_blank" rel="noopener">
+              <a class="btn" href="https://play.google.com/store/apps/details?id=com.vogelradar.app" target="_blank" rel="noopener">
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.5v13c0 .4.45.65.8.42l10.9-6.5a.5.5 0 0 0 0-.84L2.8 1.08A.5.5 0 0 0 2 1.5z"/></svg>
                 Google Play
               </a>
-              -->
-              <span class="btn soon" aria-disabled="true" title="Almost available on Google Play">
-                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.5v13c0 .4.45.65.8.42l10.9-6.5a.5.5 0 0 0 0-.84L2.8 1.08A.5.5 0 0 0 2 1.5z"/></svg>
-                Google Play <span class="badge-small">soon</span>
-              </span>
             </div>
           </div>
           <div class="radar-pane" aria-hidden="true">
@@ -581,6 +589,7 @@
               <span class="chip">Strava API</span>
               <span class="chip">LLM agents</span>
             </div>
+            <p class="card-url">Try the beta at nutrain.nl</p>
           </a>
           <a class="card" href="https://github.com/hghluchtenbelt" target="_blank" rel="noopener">
             <h3>More on GitHub <span class="arrow">→</span></h3>
@@ -642,6 +651,24 @@
             <a class="btn" href="https://scholar.google.com/citations?user=918BOOEAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
           </div>
         </article>
+
+        <div class="pub-more">
+          <h3 class="pub-more-title">Also co-author of</h3>
+          <ul class="pub-list">
+            <li>
+              <a href="https://doi.org/10.1038/s41586-026-10775-2" target="_blank" rel="noopener">Food systems transformation would reshape global agriculture</a>
+              <span class="pub-venue">Nature · 2026 <span class="badge-small">New</span></span>
+            </li>
+            <li>
+              <a href="https://doi.org/10.1016/j.lanplh.2025.101339" target="_blank" rel="noopener">Bundling measures for food systems transformation: a global, multimodel assessment</a>
+              <span class="pub-venue">The Lancet Planetary Health · 2025</span>
+            </li>
+            <li>
+              <a href="https://doi.org/10.1111/gcb.70528" target="_blank" rel="noopener">Emissions Footprints of Agriculture Around the World 1970&ndash;2020</a>
+              <span class="pub-venue">Global Change Biology · 2025</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -713,7 +740,7 @@
     (function () {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       if (!("IntersectionObserver" in window)) return;
-      var els = document.querySelectorAll(".section-head, .featured, .card, .pub, .contact-box");
+      var els = document.querySelectorAll(".section-head, .featured, .card, .pub, .pub-more, .contact-box");
       els.forEach(function (el) { el.classList.add("reveal"); });
       
       var io = new IntersectionObserver(function (entries) {
